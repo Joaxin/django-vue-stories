@@ -165,15 +165,16 @@ export default {
       }
       this.shuffle(this.messages);
 
-      this.btnText = "再生一个";
-      
-      if (this.story !== '') {
-          this.btnText = "再生一个";
+      this.$nextTick(function () {
+        if (this.gong !== '' && this.shou !== '') {
+          this.btnText = "生成新故事";
         } else {
           this.btnText = "生成故事";
         }
-
+      })
+      if (this.messages[0]){
       this.story = this.messages[index].content
+        .replace(/\r?\n/g, '<br/><br/>')
         .replace(
           new RegExp("<攻>", "g"),
           '<span class="e-brown">' + this.gong + "</span>"
@@ -187,6 +188,10 @@ export default {
         "<br><br><span> By " +
         this.messages[index].author +
         "</span>";
+    }
+    else{
+        this.openVn("请求过多，请稍后重试");
+    }
     },
     shuffle: function(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -194,18 +199,18 @@ export default {
         [array[i], array[j]] = [array[j], array[i]];
       }
     },
-    openVn() {
+    openVn(msg) {
       const h = this.$createElement;
       this.$message({
         message: h("p", null, [
-          h("span", null, "提交成功"),
+          h("span", null, msg),
           h("strong", { style: "color: #FFBF00" }, "!!!")
         ])
       });
     },
     addMessage(item) {
       this.$store.dispatch("addMessage", item);
-      this.openVn();
+      this.openVn("提交成功");
     },
     getMessage(pk) {
       this.$store.dispatch("getMessage", pk)
