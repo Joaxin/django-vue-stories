@@ -8,6 +8,7 @@ class MessageViewSet(viewsets.ModelViewSet):
     API endpoint that allows messages to be viewed or edited.
     """
     queryset = Message.objects.filter(is_public=True)
+    http_method_names = ['get', 'post', 'head']
     serializer_class = MessageSerializer
 
 from rest_framework.permissions import AllowAny

@@ -165,6 +165,8 @@ export default {
       }
       this.shuffle(this.messages);
 
+      this.btnText = "再生一个";
+      
       if (this.story !== '') {
           this.btnText = "再生一个";
         } else {
