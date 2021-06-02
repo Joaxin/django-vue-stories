@@ -1,8 +1,8 @@
 django==3.2.3
-django_taggit==1.1.0
-djangorestframework==3.9.1
+django_taggit==1.4.0
+djangorestframework==3.12.4
 django-taggit-serializer==0.1.7
-django-cors-headers==3.1.0
-#django-simpleui==2.2.5
+django-cors-headers==3.7.0
+#django-simpleui==2021.6.1
 gunicorn
 django-heroku
