@@ -26,7 +26,7 @@ SECRET_KEY = '3-tn2qnq-9-n(uoojy8%w$*d(w2)g%a85ptg8i4_vgh(z8sp_n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost","desolate-escarpment-96939.herokuapp.com"]
+ALLOWED_HOSTS = ["127.0.0.1","localhost","desolate-escarpment-96939.herokuapp.com","0.0.0.0"]
 
 
 # Application definition
@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'taggit',
     'rest_framework',
     'taggit_serializer',
-    'debug_toolbar',
 ]
 
 # REST_FRAMEWORK
@@ -63,8 +62,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # DebugTool
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 # CROS
@@ -165,6 +162,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Django-debug-toolbar to work
-INTERNAL_IPS = ['127.0.0.1']
