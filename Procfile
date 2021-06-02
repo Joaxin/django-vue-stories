@@ -1,1 +1,1 @@
-web: gunicorn lemon.wsgi --log-file
+web: gunicorn lemon.wsgi
